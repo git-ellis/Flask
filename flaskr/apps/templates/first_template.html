@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jinja模板表達式測試</title>
+</head>
+<body>
+    <h3>1 + 1 = {{1 + 1}}</h3>
+    <h3>name 原始值 = {{name}}</h3>
+    <h3>name 首字母大寫 =  {{name | capitalize}}</h3>
+    <h3>name 轉小寫 =  {{name | lower}}</h3>
+    <h3>name 轉大寫 =  {{name | upper}}</h3>
+    <h3>所有單字第一個字大寫 =  {{messages[0] | title}}</h3>
+    <h3>去除前後的空格 =  {{messages[1] | trim}}</h3>
+    <br/>
+    <h2>帶有HTML內容的字串</h2>
+    <h3>一般顯示 =  {{messages[2]}}</h3>
+    <h3>去除HTML標籤 =  {{messages[2] | striptags}}</h3>
+    <h3>不進行轉譯 =  {{messages[2] | safe}}</h3>
+</body>
+</html>
