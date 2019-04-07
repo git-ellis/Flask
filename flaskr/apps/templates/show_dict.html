@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>迭代字典物件</title>
+</head>
+<body>
+    <h4>dict內容為 : {{dict}}</h4>
+    {% for key, value in dict.items() %}
+        <h3>{{ key }} : {{ value }}</h3>
+        <h2>{{ loop.index }}</h2>
+    {% endfor %}
+</body>
+</html>

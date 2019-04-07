@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手機預算</title>
+</head>
+<body>
+    <h3>手機價格 : {{ price }}</h3>
+    {% if price > 30000 %}
+        <h4>有點貴</h4>
+    {% elif price >= 40000 %}
+        <h4>太貴了</h4>
+    {% elif price >= 50000 %}
+        <h4>盤子</h4>
+    {% elif 30000>= price >= 20000 %}
+        <h4>還行</h4>
+    {% elif price <= 20000 %}
+        <h4>很棒</h4>
+    {% endif %}
+</body>
+</html>

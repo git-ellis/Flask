@@ -5,15 +5,27 @@ import os
 app = Flask(__name__)
 
 
+@app.route('/login')
+def show_login_page():
+    return render_template("login.html")
+
+
+@app.route('/register')
+def show_registration_page():
+    return render_template("registration.html")
+
+
 @app.route('/phone/<int:price>')
 def comment_price(price):
     return render_template("phone.html", price=price)
 
 
 @app.route('/foreach/list')
-def show_dict():
-    dict = {'name': 'Jack', 'age': 50, 'height': 180, 'weight': 80}
-    return render_template("show_dict.html", dict=dict)
+def show_list():
+    ls = []
+    for i in range(1, 10):
+        ls.append('id' + str(i))
+    return render_template("show_list.html", list=ls)
 
 
 @app.route('/foreach/dict')

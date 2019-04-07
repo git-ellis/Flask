@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>迭代列表物件</title>
+</head>
+<body>
+    {% for item in list %}
+        <h3>item = {{ item }}</h3>
+        <h5>loop.index(從1開始) = {{ loop.index }}</h5>
+        <h5>loop.index0(從0開始) = {{ loop.index0 }}</h5>
+        <h5>loop.revindex(反轉，最後一筆為1) = {{ loop.revindex }}</h5>
+        <h5>loop.revindex0(反轉，最後一筆為0) = {{ loop.revindex0 }}</h5>
+        <h5>loop.first(是否為第一筆) = {{ loop.first }}</h5>
+        <h5>loop.last(是否為第一筆) = {{ loop.last }}</h5>
+        <h5>loop.length(長度) = {{ loop.length }}</h5>
+        <h4>{{ loop.cycle('odd', 'even') }}</h4>
+        <h4>{{ loop.depth }}</h4>
+        <h4>{{ loop.depth0 }}</h4>
+        <h4>{{ loop.previtem }}</h4>
+        <h4>{{ loop.nextitem }}</h4>
+    {% endfor %}
+
+</body>
+</html>
