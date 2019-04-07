@@ -5,16 +5,6 @@ import os
 app = Flask(__name__)
 
 
-@app.route('/login')
-def show_login_page():
-    return render_template("login.html")
-
-
-@app.route('/register')
-def show_registration_page():
-    return render_template("registration.html")
-
-
 @app.route('/phone/<int:price>')
 def comment_price(price):
     return render_template("phone.html", price=price)
