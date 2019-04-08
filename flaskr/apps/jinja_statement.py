@@ -5,12 +5,12 @@ import os
 app = Flask(__name__)
 
 
-@app.route('/login')
+@app.route('/login_page')
 def show_login_page():
     return render_template("login.html")
 
 
-@app.route('/register')
+@app.route('/registration')
 def show_registration_page():
     return render_template("registration.html")
 
