@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
 </head>
-<script src="../static/js/jquery-3.3.1.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<link rel="stylesheet" href="../static/css/bootstrap.css">
-<link rel="stylesheet" href="../static/css/signin.css">
+<script src="{{url_for('static', filename='js/jquery-3.3.1.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/signin.css')}}">
 
 <body>
     <div class="container-fluid">
@@ -22,8 +22,11 @@
         </div>
         <div id="footer" class="row">
             <p class="mt-5 mb-3 text-muted" style="margin: auto;">&copy; This area is footers.</p>
+            <!--{{ url_for('login',page=2, _external=True) }}-->
         </div>
     </div>
 </body>
+
+
 
 </html>
