@@ -9,6 +9,15 @@
 <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/signin.css')}}">
+<style>
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+</style>
 
 <body>
     <div class="container-fluid">
@@ -20,13 +29,40 @@
         <div id="content" class="row text-center">
             {% block content %}{% endblock %}
         </div>
+        <div id="message" class="row">
+            {% with messages = get_flashed_messages(False)%}
+                {% if messages %}
+                <ul>
+                    {% for msg in messages %}
+                    <li>{{ msg }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif%}
+            {% endwith %}
+        </div>
+        <div id="filter_message" class="row">
+            {# get_flashed_messages(with_categories=Flase, category_filter=[])
+                如果with_categories = False(預設)，則直接回傳訊息
+                如果with_categories = True，則直接回傳tuple物件(category, message)
+            #}
+            {% with messages = get_flashed_messages(True, category_filter = ['message', 'error'])%}
+                {% if messages %}
+                <ul>
+                    {% for msg in messages %}
+                        {% if msg[0] == 'message' %}
+                            <li class="success">{{ msg[1] }}</li>
+                        {% elif msg[0] == 'error' %}
+                            <li class="error">{{ msg[1] }}</li>
+                        {% endif%}
+                    {% endfor %}
+                </ul>
+                {% endif%}
+            {% endwith %}
+        </div>
         <div id="footer" class="row">
             <p class="mt-5 mb-3 text-muted" style="margin: auto;">&copy; This area is footers.</p>
-            <!--{{ url_for('login',page=2, _external=True) }}-->
         </div>
     </div>
 </body>
-
-
 
 </html>
