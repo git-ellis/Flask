@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block head %}
+檔案上傳
+{% endblock %}
+{% block content %}
+<form action="/upload" method="post" class="form-signin" enctype="multipart/form-data">
+    <div class="row">
+        <label for="file" class="sr-only">File</label>
+        <input type="file" id="file" name="file" class="col-9" required autofocus>
+        <button class="btn btn-primary btn-sm btn-block col-3" type="submit">upload</button>
+    </div>
+</form>
+{% endblock %}
