@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" %}
+
+{% block head %}
+註冊功能(繼承base.html)
+{% endblock %}
+{% block content %}
+
+<ul>
+    {% for field, errors in form.errors.items() %}
+        {% for message in errors %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+
+<form action="/register?v=1.0" method="post" style="width: 500px; margin: auto; padding: 15px;">
+    <!-- 防止CSRF攻擊 -->
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <label class="col-5">{{ form.username.label }}</label>
+         {{ form.username }}
+    </div>
+    <div class="row">
+        <label class="col-5" >{{ form.password.label }}</label>
+        {{ form.password }}
+    </div>
+    <div class="row">
+        <label class="col-5">{{ form.double_checked_pwd.label }}</label>
+        {{ form.double_checked_pwd }}
+    </div>
+     <div class="row">
+        <label class="col-5">{{ form.email.label }}</label>
+        {{ form.email }}
+    </div>
+    <div class="row" style="margin: 10px auto 0px;">
+        <button class="btn btn-primary btn-block col-5" type="submit">提交</button>
+        <div class="col-2"></div>
+        <button class="btn btn-danger btn-block col-5" type="reset">重製</button>
+    </div>
+</form>
+{% endblock %}
